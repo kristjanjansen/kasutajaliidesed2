@@ -1,8 +1,8 @@
 <template>
 
-    <div id="app" style="display: flex">
-        <div style="flex: 1">
-        <component
+    <div class="fields" style="display: flex">
+        <div class="fields__left">
+        <div><component
             v-for="field in fields"
             is="ShowField"
             :field="field"
@@ -10,7 +10,8 @@
         >    
         </component>
         </div>
-        <div style="flex: 1">
+        </div>
+        <div class="fields__right">
         <component
             v-for="(field, key) in fields"
             is="EditField"
@@ -19,7 +20,7 @@
             key="field"
         >    
         </component>
-        <big @click="addField">+</big>
+        <big @click="addField">+ Add new form element</big>
         </div>
     </div>
 
@@ -27,18 +28,17 @@
 
 <script>
 
-    import ShowField from './components/ShowField.vue'
-    import EditField from './components/EditField.vue'
+    import ShowField from './ShowField.vue'
+    import EditField from './EditField.vue'
 
     export default {
-        name: 'App',
         components: { ShowField, EditField },
         methods: {
             addField() {
                 this.fields.push({
                     type: 'input',
                     subtype: 'text',
-                    label: 'I am a field',
+                    label: 'I am a label',
                     placeholder: 'I am a placeholder',
                     rows: 5,
                     options: ['Some', 'Options'],
@@ -69,23 +69,40 @@
 </script>
 
 <style>
-
-    body {
-        font-family: sans-serif;
-        margin: 0;
-        padding: 2rem;
-        font-size: 16px;
+    .fields {
+        height: 100vh;
+        background: #eee;
     }
-
+    .fields__left {
+        font-family: sans-serif;
+        line-height: 130%;
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        padding-top: 2em;
+        font-size: 0.8em;
+    }
+    .fields__left > div {
+        width: 60%;
+    }
+    .fields__right {
+        font-family: Rubik, sans-serif;
+        font-size: 1rem;
+        line-height: 130%;
+        width: 40%;
+    }
     input, textarea, select, option {
-        ddisplay: block;
         font-size: 16px;
         border: 2px solid #ccc;
         padding: 0.5em;
         border-radius: 3px;
+        width: 100%;
     }
     hr {
-        border: 1px solid #ddd;
+        height: 0;
+        border-top: 1px solid #eaeaea;
+        border-top: 1px solid #fff;
+        width: 100%;
     }
     p {
         margin: 0.5em 0;
@@ -99,7 +116,7 @@
     }
     small {
         opacity: 0.5;
-        font-size: 1em;
+        font-size: 0.6em;
         margin: 0.25em 0;
         display: block;
     }
@@ -108,5 +125,13 @@
     }
     input[type=radio], input[type=checkbox] {
         display: inline;
+    }
+    big {
+        padding: 0.5em 0;
+        font-size: 1em;
+        cursor: pointer;
+    }
+    .showfield.checkbox {
+        font-size: 0.9rem;
     }
 </style>

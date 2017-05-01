@@ -21,6 +21,7 @@
     import Heading from './components/Heading.vue'
     import Youtube from './components/Youtube.vue'
     import Photo from './components/Photo.vue'
+    import Fields from './components/Fields.vue'
 
     import marked from 'marked';
     var renderer = new marked.Renderer();
@@ -32,7 +33,7 @@
 
     export default {
         name: 'App',
-        components: { Markup, Heading, Youtube, Photo },
+        components: { Markup, Heading, Youtube, Photo, Fields },
         data: () => ({
             slides: [],
             currentSlide: 0,

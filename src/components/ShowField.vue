@@ -1,6 +1,6 @@
 <template>
     
-    <div :class="field.type">
+    <div :class="field.type" class="showfield">
         <template v-if="field.type === 'input'">
             <h4>{{ field.label }}</h4>
             <input
@@ -44,8 +44,8 @@
             <div style="height: 2em"></div>
         </template>
         <template v-if="field.type === 'line'">
-            <div style="height: 1.5em; border-bottom: 1px solid gray; width: 50%"></div>
-            <div style="height: 1.5em"></div>
+            <div style="height: 0.5em; border-bottom: 1px solid #ccc; "></div>
+            <div style="height: 0.5em"></div>
         </template>
     </div>
 
@@ -65,4 +65,12 @@
 </script>
 
 <style>
+
+.showfield h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    font-size: 16px;
+    opacity: 0.7;
+    margin: 0.5em 0 0.1em 0;
+}
 </style>

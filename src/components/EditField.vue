@@ -1,10 +1,10 @@
 <template>
     
-    <div class="EditField">
-        <span style="float: right" @click="onDeleteField">×</span>
+    <div class="editfield">
+        <span style="float: right; margin: 10px 30px 0 0" @click="onDeleteField">×</span>
         <h4>Type</h4>
         <p><span
-            style="padding: 3px 6px; line-height: 1.5em; border: 1px solid #ccc; cursor: pointer;"
+            style="border-radius: 10px; display: inline-block; margin-right: 5px; padding: 0px 4px; line-height: 1.6em; border: 1px solid #ccc; cursor: pointer; font-size: 0.8em"
             :style="{background: field.type === type ? '#ccc' : 'none'}"
             v-for="type in types"
             @click="field.type = type"
@@ -66,7 +66,7 @@
             field: { default: () => {} }
         },
         data: () => ({
-            types: ['input', 'textarea', 'select', 'checkbox', 'radio', 'help', 'spacer', 'line'],
+            types: ['input', 'textarea', 'select', 'checkbox', 'radio', 'help', 'line'],
             options: ''
         }),
         mounted() {
@@ -90,9 +90,13 @@
 </script>
 
 <style>
-    .EditField {
-        padding: 0.5em 1em 1em 1em;
-        background: #eee;
+    .editfield {
+        padding: 0.5em 40px 1em 1em;
         margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+        background: white;
+    }
+    .editfield h4 {
+        font-weight: normal;
     }
 </style>
